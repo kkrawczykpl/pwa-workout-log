@@ -1,7 +1,7 @@
 {
-  "name": "pwa-boilerplate",
-  "description": "PWA Boilerplate",
-  "version": "0.3.0",
+  "name": "pwa-workout-log",
+  "description": "PWA Workout Log",
+  "version": "0.1.0",
   "license": "MIT",
   "dependencies": {
     "@svgr/webpack": "6.2.1",

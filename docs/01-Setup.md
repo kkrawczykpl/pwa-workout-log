@@ -19,6 +19,7 @@ After this, run the `yarn install` command to install node modules.
 - `yarn development` - Start NextJS development server, you might need to run build before first run.
 - `yarn build` - Create build files.
 - `yarn start` - Start NextJS production server.
+- `yarn dev` - Start NextJS development server.
 - `yarn eslint` - Run ESLint tests.
 
 ## Project structure
