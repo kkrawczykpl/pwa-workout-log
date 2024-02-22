@@ -1,26 +1,18 @@
 const WorkboxPlugin = require('workbox-webpack-plugin');
-const generateSitemap = require('./scripts/sitemap');
 const crypto = require('crypto');
 const fs = require('fs');
 const path = require('path');
-
-const baseUrl = 'https://pwa-boilerplate.com';
-
-const sitemapDest = path.resolve('.next/static');
-const skipIndex = ['/profile'];
 
 const serviceWorkerPath = 'static/sw.js';
 const serviceWorkerUrl = `/_next/${serviceWorkerPath}`;
 const serviceWorkerDest = `.next/${serviceWorkerPath}`;
 
 module.exports = {
-    webpack5: true,
     reactStrictMode: true,
     env: {
         serviceWorkerUrl
     },
     pageExtensions: ['ts', 'tsx'],
-    excludeFile: (str) => /\/src\/sw\/.*/.test(str),
     webpack: (config, { isServer, dev, webpack, buildId }) => {
         config.module.rules.push(
             {
@@ -32,13 +24,6 @@ module.exports = {
                 loader: 'raw-loader'
             }
         );
-
-        if (isServer && !dev) {
-            generateSitemap({
-                baseUrl,
-                skipIndex
-            }, sitemapDest);
-        }
 
         if (!isServer) {
             const additionalManifestEntries = fs
